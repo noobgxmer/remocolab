@@ -159,8 +159,8 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
                 universal_newlines = True)
   msg += ret.stdout + "\n"
 
-  root_password = secrets.token_urlsafe()
-  user_password = secrets.token_urlsafe()
+  root_password = "rootpassword"
+  user_password = "colabpassword"
   user_name = "colab"
   msg += "✂️"*24 + "\n"
   msg += f"root password: {root_password}\n"
@@ -385,7 +385,7 @@ no-x11-tcp-connections
   vncrun_py.write_text("""\
 import subprocess, secrets, pathlib
 
-vnc_passwd = secrets.token_urlsafe()[:8]
+vnc_passwd = "password"
 vnc_viewonly_passwd = secrets.token_urlsafe()[:8]
 print("✂️"*24)
 print("VNC password: {}".format(vnc_passwd))
